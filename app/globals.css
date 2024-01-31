@@ -3,31 +3,67 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --purple: #5964E0; 
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --text-white-color: 255, 255, 255;
+        --background-primeiro-plano: #19202D;
+        --background-segundo-plano: #121721;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html, body {
+    color: rgb(var(--text-white-color));
+    background: var(--background-segundo-plano);
+}
+#img-header {
+    border:0;
+    border-radius: 0 0 0 90px;
 }
 
+input[type="checkbox"] {
+    display: none;
+}
+
+.label-checkbox {
+    position: relative;
+    padding-left: 30px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.label-checkbox:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    background-color: #fff;
+    opacity: 0.1035;
+    border-radius: 3px;
+}
+
+
+input[type="checkbox"]:checked + .label-checkbox:before {
+    background-color: #5964E0; 
+}
+
+
+input[type="checkbox"]:focus + .label-checkbox:before {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
