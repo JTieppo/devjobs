@@ -3,8 +3,8 @@ import Card from "./ui/card";
 import { data } from "./data";
 
 export default function Home() {
-    const position="position teste"
-    const company="company teste"
+    const position="position teste" / apagar
+    const company="company teste" / apagar
     const IDlist = data.map(componente => componente.id)
     
     return (
