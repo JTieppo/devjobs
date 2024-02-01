@@ -8,7 +8,7 @@ export default function Home() {
     
     return (
         <main className="">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-8 md:ml-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-8 md:ml-10 lg:ml-20">
                 {IDlist.map((id) => (
                     <Card key={id} id={id} />
                 ))}
