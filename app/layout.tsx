@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,22 +20,36 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <header className="hidden lg:flex flex-col">
-                    <img id="img-header" className="" src="/assets/desktop/bg-pattern-header.svg" alt=""/>
-                    <div className="mr-20 ml-20">
+                <header className="flex flex-col">
+                    <img id="img-header" className="hidden lg:flex" src="/assets/desktop/bg-pattern-header.svg" alt=""/>
+                    <img id="img-header" className="hidden md:flex lg:hidden" src="/assets/tablet/bg-pattern-header.svg" alt=""/>
+                    <img src="/assets/mobile/bg-pattern-header.svg" className="md:hidden" alt="" />
+                    <div className="hidden md:flex mr-8 ml-8 md:mr-10 md:ml-10 lg:mr-20 lg:ml-20">
                         <div className="flex flex-row w-full" style={{ marginTop: '-32px'}}>
                             <div className="w-full">
-                                <input className="h-16  border w-full rounded-l-lg bg-[#19202D]" type="text" />
+                                <input id="input-text" className="h-16 w-full rounded-l-lg" type="text" />
                             </div>
                             <div className="w-full">
                                 <img src="" alt="" />
-                                <input className="h-16 w-full bg-[#19202D]" type="text" />
+                                <input id="input-text" className="h-16 w-full" type="text" />
                             </div>
-                            <div className="flex flex-row justify-between min-w-96 items-center pl-3 bg-[#19202D] rounded-r-lg">
+                            <div id="input-text" className="hidden lg:flex flex-row justify-between min-w-56 lg:min-w-96 items-center pl-3 rounded-r-lg">
                                 <input type="checkbox" id="meuCheckbox" className=""/>
                                 <label htmlFor="meuCheckbox" className="label-checkbox">Full time only</label>
-                                <button className="rounded bg-[#5964E0] h-10 w-28 mr-5">search</button>
+                                <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5">search</button>
                             </div>
+                            <div id="input-text" className="hidden md:flex flex-row justify-between min-w-56 lg:hidden items-center pl-3 rounded-r-lg">
+                                <input type="checkbox" id="meuCheckbox" className=""/>
+                                <label htmlFor="meuCheckbox" className="label-checkbox">Full time</label>
+                                <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5">search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="md:hidden flex flex-row justify-between ml-10 mr-10" style={{marginTop: "-32px"}}>
+                        <input id="input-text" className="p-4" type="text" placeholder="Filter by title..."/>
+                        <div className="flex items-center">
+                            <button><img src="assets/mobile/icon-filter.svg" alt="" /></button>
+                            <button className="rounded bg-[#5964E0] h-10 w-10"><MagnifyingGlassIcon className="mx-auto h-8 w-8 text-white"></MagnifyingGlassIcon></button>
                         </div>
                     </div>
                 </header>
