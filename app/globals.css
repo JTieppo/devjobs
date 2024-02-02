@@ -11,6 +11,7 @@
     --purple: #5964E0; 
     --opacidade: 0.1035;
     --input-check: black;
+    --borda-opaca: #e9eef6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
         --card-color: #19202D;
         --opacidade: 0.1035;
         --input-check: #fff;
+        --borda-opaca: #262d35;
     }
 }
 
@@ -44,6 +46,7 @@ input[type="checkbox"] {
     padding-left: 30px;
     cursor: pointer;
     display: inline-block;
+    user-select: none;
 }
 
 .label-checkbox:before {
@@ -55,13 +58,14 @@ input[type="checkbox"] {
     height: 18px;
     border: 0;
     background-color: var(--input-check);
-    /* opacity: var(--opacidade); */
+    opacity: var(--opacidade);
     border-radius: 3px;
 }
 
 
 input[type="checkbox"]:checked + .label-checkbox:before {
     background-color: #5964E0; 
+    opacity: 1;
 }
 
 
@@ -74,6 +78,7 @@ input[type="checkbox"]:focus + .label-checkbox:before {
 }
 #input-text {
     background-color: var(--card-color);
+    border-color: var(--borda-opaca);
 }
 
 @layer utilities {
