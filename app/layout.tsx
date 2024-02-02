@@ -52,11 +52,11 @@ export default function RootLayout({
                             </div>
                         </div>
                     </div>
-                    <div className="md:hidden flex flex-row justify-between ml-10 mr-10" style={{marginTop: "-32px"}}>
-                        <input id="input-text" className="p-4" type="text" placeholder="Filter by title..."/>
-                        <div className="flex items-center">
-                            <button><img src="assets/mobile/icon-filter.svg" alt="" /></button>
-                            <button className="rounded bg-[#5964E0] h-10 w-10"><MagnifyingGlassIcon className="mx-auto h-8 w-8 text-white"></MagnifyingGlassIcon></button>
+                    <div className="md:hidden flex flex-row justify-between ml-10 mr-10 items-center" style={{marginTop: "-32px"}}>
+                        <input id="input-text" className="p-4 rounded w-full pr-24" type="text" placeholder="Filter by title..."/>
+                        <div className="flex items-center ml-[-120%] mr-5">
+                            <button className="mr-2"><img src="assets/mobile/icon-filter.svg" alt="" /></button>
+                            <button className="rounded-md bg-[#5964E0] h-8 w-8"><MagnifyingGlassIcon className="mx-auto h-8 w-8 text-white"></MagnifyingGlassIcon></button>
                         </div>
                     </div>
                 </header>
