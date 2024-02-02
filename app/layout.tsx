@@ -1,8 +1,9 @@
-'use client'
+"use client"
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
+import Filtro from "./ui/filtro";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,6 +18,14 @@ export default function RootLayout({
     const [checkVisual, setCheckVisual] = useState('');
     function mostraCheck(){
         setCheckVisual(checkVisual == '' ? 'md:inline-block':'');
+    }
+
+
+    const [opacidade, setOpacidade] = useState('');
+    const [viFiltro, setViFiltro] = useState('hidden');
+    function clickIconFiltro(){
+        setOpacidade(opacidade == '' ? 'opacity-5' : '');
+        setViFiltro(viFiltro == 'hidden' ? 'flex' : 'hidden');
     }
 
     return (
@@ -45,9 +54,7 @@ export default function RootLayout({
                                     <p className="ml-1">time</p>                            
                                     <p className="hidden lg:flex ml-1">only</p>                                                
                                     <img src="/assets/desktop/icon-check.svg" className={`hidden ${checkVisual} relative md:ml-[-91px] lg:ml-[-127px] pointer-events-none`} alt="" />
-                                    
                                 </div>
-                                
                                 <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5">search</button>
                             </div>
                         </div>
@@ -55,12 +62,17 @@ export default function RootLayout({
                     <div className="md:hidden flex flex-row justify-between ml-10 mr-10 items-center" style={{marginTop: "-32px"}}>
                         <input id="input-text" className="p-4 rounded w-full pr-24" type="text" placeholder="Filter by title..."/>
                         <div className="flex items-center ml-[-120%] mr-5">
-                            <button className="mr-2"><img src="assets/mobile/icon-filter.svg" alt="" /></button>
+                            <button onClick={clickIconFiltro} className="mr-2"><img src="assets/mobile/icon-filter.svg" alt="" /></button>
                             <button className="rounded-md bg-[#5964E0] h-8 w-8"><MagnifyingGlassIcon className="mx-auto h-8 w-8 text-white"></MagnifyingGlassIcon></button>
                         </div>
                     </div>
                 </header>
-                {children}
+                <div className={opacidade}>
+                    {children}
+                </div>
+                <div className={viFiltro}>
+                    <Filtro></Filtro>
+                </div>
             </body>
         </html>
     );
