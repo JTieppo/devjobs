@@ -33,14 +33,13 @@ export default function RootLayout({
                                 <img src="" alt="" />
                                 <input id="input-text" className="h-16 w-full" type="text" />
                             </div>
-                            <div id="input-text" className="hidden lg:flex flex-row justify-between min-w-56 lg:min-w-96 items-center pl-3 rounded-r-lg">
-                                <input type="checkbox" id="meuCheckbox" className=""/>
-                                <label htmlFor="meuCheckbox" className="label-checkbox">Full time only</label>
-                                <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5">search</button>
-                            </div>
-                            <div id="input-text" className="hidden md:flex flex-row justify-between min-w-56 lg:hidden items-center pl-3 rounded-r-lg">
-                                <input type="checkbox" id="meuCheckbox" className=""/>
-                                <label htmlFor="meuCheckbox" className="label-checkbox">Full time</label>
+                            <div id="input-text" className="hidden md:flex flex-row justify-between min-w-56 lg:min-w-80 items-center pl-3 rounded-r-lg">
+                                <div className="flex flex-row">                                
+                                    <input type="checkbox" id="meuCheckbox" className=""/>
+                                    <label htmlFor="meuCheckbox" className="label-checkbox">Full time</label>                            
+                                    <p className="hidden lg:flex ml-1">only</p>                                                
+                                </div>
+                                <img src="/assets/desktop/icon-check.svg" className="relative ml-[-88%]" alt="" />
                                 <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5">search</button>
                             </div>
                         </div>
