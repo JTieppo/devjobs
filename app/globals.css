@@ -25,6 +25,7 @@
         --opacidade: 0.1035;
         --input-check: #fff;
         --borda-opaca: #262d35;
+        --purple: #5964E0;
     }
 }
 
@@ -80,6 +81,7 @@ input[type="checkbox"]:focus + .label-checkbox:before {
     background-color: var(--card-color);
     border-color: var(--borda-opaca);
 }
+
 
 @layer utilities {
     .text-balance {
