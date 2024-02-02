@@ -41,6 +41,9 @@ html, body {
 input[type="checkbox"] {
     display: none;
 }
+#checkbox-mobile {
+    display: block;
+}
 
 .label-checkbox {
     position: relative;
