@@ -12,6 +12,7 @@
     --opacidade: 0.1035;
     --input-check: black;
     --borda-opaca: #e9eef6;
+    --company-button-site: rgba(23, 0, 200, 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +27,7 @@
         --input-check: #fff;
         --borda-opaca: #262d35;
         --purple: #5964E0;
+        --company-button-site: rgba(166, 144, 255, 0.06);
     }
 }
 
@@ -84,7 +86,7 @@ button{
     border-radius: 0 0 0 90px;
 }
 #companyButtonSite{
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--company-button-site);
 }
 
 
