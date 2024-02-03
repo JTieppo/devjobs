@@ -18,8 +18,8 @@ export default function RootLayout({
                     <img id="img-header" className="hidden md:flex lg:hidden" src="/assets/tablet/bg-pattern-header.svg" alt="" />
                     <img src="/assets/mobile/bg-pattern-header.svg" className="md:hidden" alt="" />
                     <div className="z-50 ml-10 mr-10  md:ml-20 md:mr-20 -mt-[100px] mb-[70px] flex flex-row justify-between min-w-screen ">
-                        <Link href={'/'} className="cursor-pointer"><img src="/assets/desktop/logo.svg" alt="" /></Link>
-                        <div className="flex flex-row">
+                        <Link href={'/'} className="cursor-pointer"><img src="/assets/desktop/logo.svg" alt="" id="area-grow"/></Link>
+                        <div className="flex flex-row" id="area-grow">
                             <img className="mr-2" src="/assets/desktop/icon-sun.svg" alt="" />
                             <label className="relative inline-flex mt-1 cursor-pointer">
                                 <input type="checkbox" value="" className="sr-only peer"></input>

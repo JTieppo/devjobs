@@ -35,12 +35,12 @@ export default function Home() {
             <main className={opacidade}>
                 <div className="hidden md:flex mr-8 ml-8 md:mr-10 md:ml-10 lg:mr-20 lg:ml-20">
                     <div className="flex flex-row w-full" style={{ marginTop: '-32px' }}>
-                        <div className="w-full flex items-center">
+                        <div className="w-full flex items-center" id="area-grow">
                             <img className="absolute ml-3" src="/assets/desktop/icon-search.svg" alt="" />
                             <input id="input-text" className="hidden xl:flex pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title, companies, expertise..." />
                             <input id="input-text" className="xl:hidden pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title..." />
                         </div>
-                        <div className="w-full flex items-center">
+                        <div className="w-full flex items-center" id="area-grow">
                             <img className="absolute ml-3" src="/assets/desktop/icon-location.svg" alt="" />
                             <input id="input-text" className="pl-12 h-16 w-full border-r" type="text" placeholder="Filter by location..." />
                         </div>

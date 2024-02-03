@@ -46,11 +46,17 @@ input[type="checkbox"]:checked + .label-checkbox:before {
 input[type="checkbox"]:focus + .label-checkbox:before {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
-button{
+input{
     cursor: pointer;
-    transition: transform 1s;
 }
-button
+button, #area-grow{
+    cursor: pointer;
+    transition: transform 1.5s;
+}
+button:hover, #area-grow:hover{
+    transform: scale(1.1);
+}
+
 
 .label-checkbox {
     position: relative;
@@ -75,6 +81,13 @@ button
 
 #card {
     background-color: var(--card-color);
+}
+#card-company {
+    background-color: var(--card-color);
+    transition: transform 1.5s;
+}
+#card-company:hover {
+    transform: scale(1.1);
 }
 #input-text {
     background-color: var(--card-color);
