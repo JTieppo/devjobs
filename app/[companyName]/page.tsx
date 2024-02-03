@@ -11,8 +11,8 @@ export default function Company() {
     var site = urlParts[1];
 
     return (
-        <div className="">
-            <div className=" ml-[20%] mt-[-65px] absolute flex-col w-[60%]">
+        <div className="absolute flex-col">
+            <div className="ml-[10%] lg:ml-[20%] mt-[-65px] w-[80%] lg:w-[60%]">
                 <div className="flex flex-row rounded-md" id="card">
                     <div className="flex min-w-32 min-h-32 items-center rounded-bl" style={{ backgroundColor: companyData?.logoBackground }}>
                         <img className="mx-auto" src={companyData?.logo} alt="" />
@@ -21,7 +21,7 @@ export default function Company() {
                     <div className="flex flex-row items-center justify-between p-6 w-full">
                         <div>
                             {companyData?.company}
-                            <p className="text-sm" style={{color:"#6E8098"}}>{site}.com</p>
+                            <p className="text-sm" style={{ color: "#6E8098" }}>{site}.com</p>
                         </div>
                         <button className="w-32 h-10 rounded" id="companyButtonSite">{companyData?.company} site</button>
                     </div>
@@ -59,7 +59,13 @@ export default function Company() {
                     </div>
                 </div>
             </div>
-
+            <div className="h-20 w-full flex flex-row justify-between items-center pl-[20%] pr-[20%]" id="card">
+                <div className="flex flex-col">
+                    <p className="text-lg">{companyData?.position}</p>
+                    <p className="text-sm" style={{color:"#9DAEC2"}}>So Digital Inc.</p>
+                </div>
+                <button className="p-2 rounded" id="" style={{backgroundColor:"#5964E0"}}>Apply Now</button>
+            </div>
         </div>
     );
 }

@@ -65,6 +65,7 @@ export default function Home() {
             <div className={viFiltro}>
                 <Filtro></Filtro>
             </div>
+            <div className="mb-10 mt-12 w-full flex items-center"><button className="mx-auto p-4 rounded" style={{backgroundColor:"#5964E0"}}>Load more</button></div>
         </main>
     );
 }
