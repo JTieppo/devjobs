@@ -11,7 +11,7 @@ export default function Company() {
     var site = urlParts[1];
 
     return (
-        <div>
+        <div className="">
             <div className=" ml-[20%] mt-[6%] absolute flex-col w-[60%]">
                 <div className="flex flex-row rounded-md" id="card">
                     <div className="flex min-w-32 min-h-32 items-center rounded-bl" style={{ backgroundColor: companyData?.logoBackground }}>
@@ -59,7 +59,7 @@ export default function Company() {
                     </div>
                 </div>
             </div>
-            <div className="" id="card">
+            <div className="fixed mt-[43%]" id="card">
                 teste
             </div>
         </div>

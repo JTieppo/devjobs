@@ -25,9 +25,9 @@ export default function Home() {
     }
 
     return (
-        <main className="absolute w-full mt-32">
+        <main className="">
             <div className="hidden md:flex mr-8 ml-8 md:mr-10 md:ml-10 lg:mr-20 lg:ml-20">
-                <div className="flex flex-row w-full" >
+                <div className="flex flex-row w-full" style={{ marginTop: '-32px' }}>
                     <div className="w-full flex items-center">
                         <img className="absolute ml-3" src="/assets/desktop/icon-search.svg" alt="" />
                         <input id="input-text" className="hidden xl:flex pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title, companies, expertise..." />
