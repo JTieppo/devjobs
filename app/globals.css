@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
     --foreground-color: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
@@ -47,8 +48,9 @@ input[type="checkbox"]:focus + .label-checkbox:before {
 }
 button{
     cursor: pointer;
+    transition: transform 1s;
 }
-
+button
 
 .label-checkbox {
     position: relative;

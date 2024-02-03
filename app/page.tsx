@@ -12,20 +12,24 @@ export default function Home() {
     const IDlist = data.map(componente => componente.id)
 
     const [checkVisual, setCheckVisual] = useState('');
+    const [opacidade, setOpacidade] = useState('');
+    var [viFiltro, setViFiltro] = useState('hidden');
+    const [eventoPonteiro, setEventoPonteiro] = useState('');
+
     function mostraCheck() {
         setCheckVisual(checkVisual == '' ? 'md:inline-block' : '');
     }
 
-
-    const [opacidade, setOpacidade] = useState('');
-    const [viFiltro, setViFiltro] = useState('hidden');
-    const [eventoPonteiro, setEventoPonteiro] = useState('');
     function clickIconFiltro() {
         setOpacidade(opacidade == '' ? 'opacity-20' : '');
         setEventoPonteiro(eventoPonteiro == '' ? 'pointer-events-none' : '')
         setViFiltro(viFiltro == 'hidden' ? 'flex' : 'hidden');
     }
-    console.log(eventoPonteiro);
+
+    function retorna(){
+        console.log("funciona");
+    }
+
     return (
         <div>
             <main className={opacidade}>
@@ -68,7 +72,8 @@ export default function Home() {
                 <div className="mb-10 mt-12 w-full flex items-center"><button className="mx-auto p-4 rounded" style={{ backgroundColor: "#5964E0" }}>Load more</button></div>
             </main>
             <div className={viFiltro}>
-                <Filtro></Filtro>
+            <button className="m-10 fixed mx-auto w-full h-full top-0" onClick={clickIconFiltro}></button>
+                <Filtro viFiltro={viFiltro}></Filtro>
             </div>
         </div>
     );
