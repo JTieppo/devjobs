@@ -23,7 +23,7 @@ export default function Company() {
                             {companyData?.company}
                             <p className="text-sm" style={{ color: "#6E8098" }}>{site}.com</p>
                         </div>
-                        <button className="w-32 h-10 rounded" id="companyButtonSite">{companyData?.company} site</button>
+                        <button className="min-w-32 h-10 rounded pl-2 pr-2" id="companyButtonSite">{companyData?.company} site</button>
                     </div>
 
                 </div>
