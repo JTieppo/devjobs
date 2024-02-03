@@ -9,6 +9,16 @@ import { useEffect, useState } from "react";
 import Filtro from "./ui/filtro";
 
 export default function Home() {
+
+    const [showSnackbar, setShowSnackbar] = useState('');
+
+    const botaoDesativado = () => {
+        setShowSnackbar('show');
+        setTimeout(() => {
+            setShowSnackbar('');
+        }, 3000);
+    };
+
     const IDlist = data.map(componente => componente.id)
 
     const [checkVisual, setCheckVisual] = useState('');
@@ -26,9 +36,6 @@ export default function Home() {
         setViFiltro(viFiltro == 'hidden' ? 'flex' : 'hidden');
     }
 
-    function retorna(){
-        console.log("funciona");
-    }
 
     return (
         <div>
@@ -69,11 +76,14 @@ export default function Home() {
                         <Card key={id} id={id} />
                     ))}
                 </div>
-                <div className="mb-10 mt-12 w-full flex items-center"><button className="mx-auto p-4 rounded" style={{ backgroundColor: "#5964E0" }}>Load more</button></div>
+                <div className="mb-10 mt-12 w-full flex items-center"><button className="mx-auto p-4 rounded" style={{ backgroundColor: "#5964E0" }} onClick={botaoDesativado}>Load more</button></div>
             </main>
             <div className={viFiltro}>
-            <button className="m-10 fixed mx-auto w-full h-full top-0" onClick={clickIconFiltro}></button>
+                <button className="m-10 fixed mx-auto w-full h-full top-0" onClick={clickIconFiltro}></button>
                 <Filtro viFiltro={viFiltro}></Filtro>
+            </div>
+            <div id="snackbar" className={showSnackbar}>
+                <p className="my-auto mx-auto text-2xl" style={{ color: "#5964E0" }}>Illustrative button</p>
             </div>
         </div>
     );
