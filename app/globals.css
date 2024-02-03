@@ -33,17 +33,20 @@ html, body {
     color: rgb(var(--foreground-color));
     background: var(--background-segundo-plano);
 }
-#img-header {
-    border:0;
-    border-radius: 0 0 0 90px;
-}
-
 input[type="checkbox"] {
     display: none;
 }
-#checkbox-mobile {
-    display: block;
+input[type="checkbox"]:checked + .label-checkbox:before {
+    background-color: #5964E0; 
+    opacity: 1;
 }
+input[type="checkbox"]:focus + .label-checkbox:before {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+button{
+    cursor: pointer;
+}
+
 
 .label-checkbox {
     position: relative;
@@ -52,7 +55,6 @@ input[type="checkbox"] {
     display: inline-block;
     user-select: none;
 }
-
 .label-checkbox:before {
     content: '';
     position:absolute;
@@ -67,22 +69,22 @@ input[type="checkbox"] {
 }
 
 
-input[type="checkbox"]:checked + .label-checkbox:before {
-    background-color: #5964E0; 
-    opacity: 1;
-}
-
-
-input[type="checkbox"]:focus + .label-checkbox:before {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-}
-
 #card {
     background-color: var(--card-color);
 }
 #input-text {
     background-color: var(--card-color);
     border-color: var(--borda-opaca);
+}
+#checkbox-mobile {
+    display: block;
+}
+#img-header {
+    border:0;
+    border-radius: 0 0 0 90px;
+}
+#companyButtonSite{
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 

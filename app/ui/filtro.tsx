@@ -17,7 +17,6 @@ export default function Filtro(content) {
                             <label htmlFor="meuCheckbox" className="">Full</label>
                             <p className="ml-1">time</p>
                             <p className="ml-1">only</p>
-                            <img src="/assets/desktop/icon-check.svg" className="relative md:ml-[-91px] lg:ml-[-127px] pointer-events-none" alt="" />
                         </div>
                         <button className="mt-2 rounded bg-[#5964E0] h-10 w-full">search</button>
                     </div>
