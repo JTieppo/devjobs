@@ -7,10 +7,15 @@ import "./globals.css";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
 import Filtro from "./ui/filtro";
+import { url } from "inspector";
+
+
+const urlBase = 'http://127.0.0.1:3000/api/busca'
 
 export default function Home() {
 
     const [showSnackbar, setShowSnackbar] = useState('');
+    const [responseSearch, setResponseSearch] = useState('');
 
     const botaoDesativado = () => {
         setShowSnackbar('show');
@@ -19,15 +24,21 @@ export default function Home() {
         }, 3000);
     };
 
-    const IDlist = data.map(componente => componente.id)
 
     const [checkVisual, setCheckVisual] = useState('');
     const [opacidade, setOpacidade] = useState('');
-    var [viFiltro, setViFiltro] = useState('hidden');
+    const [viFiltro, setViFiltro] = useState('hidden');
     const [eventoPonteiro, setEventoPonteiro] = useState('');
+    const [fullTime, setFullTime] = useState(false);
+    const [buscaLocal, setBuscaLocal] = useState('');
+    const [buscaTipo, setBuscaTipo] = useState('');
+    const [IDlist, setIDlist] = useState(data.map(dados => dados.id));
+    const [correspondenteNulo, setShowCorrespondenteNulo] = useState('hidden');
+    const [mainShow, setMainShow] = useState('block');
 
     function mostraCheck() {
         setCheckVisual(checkVisual == '' ? 'md:inline-block' : '');
+        setFullTime(fullTime == false ? true : false);
     }
 
     function clickIconFiltro() {
@@ -36,20 +47,43 @@ export default function Home() {
         setViFiltro(viFiltro == 'hidden' ? 'flex' : 'hidden');
     }
 
+    function valorCorrespondenteNulo(){
+        setShowCorrespondenteNulo(correspondenteNulo == 'flex' ? 'hidden' : 'flex')
+        setMainShow(mainShow == 'hidden' ? 'block' : 'hidden');
+    }
+
+    const buscar = () => {
+        fetch("/api/busca", {
+            method: "POST",
+            body: JSON.stringify({
+                fullTime,
+                buscaLocal,
+                buscaTipo,
+            }),
+            headers: {
+                "content-type": "application/json",
+            },
+        })
+        .then(response => response.json())
+        .then(dados => dados.ids == (0) ? (fullTime == false ? (buscaTipo == '' ? (buscaLocal == '' ? (setIDlist(data.map(dado => dado.id))) : (valorCorrespondenteNulo())) : (valorCorrespondenteNulo())) : (valorCorrespondenteNulo())) : setIDlist(dados.ids))
+        .catch((e) => console.log(e))
+        
+    };
 
     return (
         <div>
-            <main className={opacidade}>
+            <div className={`${correspondenteNulo} h-screen`}><p className="text-center mt-20 mx-auto text-2xl"> Sorry, no matches were found. </p></div>
+            <main className={`${opacidade} ${mainShow}`}>
                 <div className="hidden md:flex mr-8 ml-8 md:mr-10 md:ml-10 lg:mr-20 lg:ml-20">
                     <div className="flex flex-row w-full" style={{ marginTop: '-32px' }}>
                         <div className="w-full flex items-center" id="area-grow">
                             <img className="absolute ml-3" src="/assets/desktop/icon-search.svg" alt="" />
-                            <input id="input-text" className="hidden xl:flex pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title, companies, expertise..." />
-                            <input id="input-text" className="xl:hidden pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title..." />
+                            <input id="input-text" className="hidden xl:flex pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title, companies, expertise..." value={buscaTipo} onChange={(e) => setBuscaTipo(e.target.value)} />
+                            <input id="input-text" className="xl:hidden pl-12 h-16 w-full rounded-l-lg border-r" type="text" placeholder="Filter by title..." value={buscaTipo} onChange={(e) => setBuscaTipo(e.target.value)} />
                         </div>
                         <div className="w-full flex items-center" id="area-grow">
                             <img className="absolute ml-3" src="/assets/desktop/icon-location.svg" alt="" />
-                            <input id="input-text" className="pl-12 h-16 w-full border-r" type="text" placeholder="Filter by location..." />
+                            <input id="input-text" className="pl-12 h-16 w-full border-r" type="text" placeholder="Filter by location..." value={buscaLocal} onChange={(e) => setBuscaLocal(e.target.value)} />
                         </div>
                         <div id="input-text" className="hidden md:flex flex-row justify-between min-w-64 lg:min-w-80 items-center pl-3 rounded-r-lg">
 
@@ -60,7 +94,7 @@ export default function Home() {
                                 <p className="hidden lg:flex ml-1">only</p>
                                 <img src="/assets/desktop/icon-check.svg" className={`hidden ${checkVisual} relative md:ml-[-91px] lg:ml-[-127px] pointer-events-none`} alt="" />
                             </div>
-                            <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5">search</button>
+                            <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5" onClick={buscar}>search</button>
                         </div>
                     </div>
                 </div>
