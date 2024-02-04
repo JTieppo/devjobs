@@ -8,6 +8,8 @@ import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
 import Filtro from "./ui/filtro";
 import { url } from "inspector";
+import NotFound from "./ui/notFound";
+import Link from "next/link";
 
 
 const urlBase = 'http://127.0.0.1:3000/api/busca'
@@ -47,7 +49,7 @@ export default function Home() {
         setViFiltro(viFiltro == 'hidden' ? 'flex' : 'hidden');
     }
 
-    function valorCorrespondenteNulo(){
+    function valorCorrespondenteNulo() {
         setShowCorrespondenteNulo(correspondenteNulo == 'flex' ? 'hidden' : 'flex')
         setMainShow(mainShow == 'hidden' ? 'block' : 'hidden');
     }
@@ -64,15 +66,20 @@ export default function Home() {
                 "content-type": "application/json",
             },
         })
-        .then(response => response.json())
-        .then(dados => dados.ids == (0) ? (fullTime == false ? (buscaTipo == '' ? (buscaLocal == '' ? (setIDlist(data.map(dado => dado.id))) : (valorCorrespondenteNulo())) : (valorCorrespondenteNulo())) : (valorCorrespondenteNulo())) : setIDlist(dados.ids))
-        .catch((e) => console.log(e))
-        
+            .then(response => response.json())
+            .then(dados => dados.ids == (0) ? (fullTime == false ? (buscaTipo == '' ? (buscaLocal == '' ? (setIDlist(data.map(dado => dado.id))) : (valorCorrespondenteNulo())) : (valorCorrespondenteNulo())) : (valorCorrespondenteNulo())) : setIDlist(dados.ids))
+            .catch((e) => console.log(e))
+
     };
 
     return (
         <div>
-            <div className={`${correspondenteNulo} h-screen`}><p className="text-center mt-20 mx-auto text-2xl"> Sorry, no matches were found. </p></div>
+            <div className={`${correspondenteNulo} h-screen text-center`}>
+                <div className="w-full">
+                    <p className="text-center mt-20 mx-auto text-2xl"> Sorry, no matches were found. </p>
+                    <button className="bg-[#5964E0] rounded h-10 pl-3 pr-3 text-center mt-8" onClick={valorCorrespondenteNulo}>Back Home</button>
+                </div>
+            </div>
             <main className={`${opacidade} ${mainShow}`}>
                 <div className="hidden md:flex mr-8 ml-8 md:mr-10 md:ml-10 lg:mr-20 lg:ml-20">
                     <div className="flex flex-row w-full" style={{ marginTop: '-32px' }}>
