@@ -7,11 +7,10 @@ import "./globals.css";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
 import Filtro from "./ui/filtro";
-import { url } from "inspector";
 import Link from "next/link";
 
 
-const urlBase = 'http://127.0.0.1:3000/api/busca'
+
 
 export default function Home() {
 

@@ -6,9 +6,9 @@ import { useState } from "react";
 export default function Company() {
     const path = usePathname();
     var companyID = path.slice(1);
-    const companyData = data.find(dados => dados.id == companyID);
+    const companyData = data.find(dados => dados.id == +companyID);
     var urlParts = companyData?.website.split('com/');
-    var site = urlParts[1];
+    const site = urlParts?.[1] ?? ' ';
 
     const [showSnackbar, setShowSnackbar] = useState('');
     const botaoDesativado = () => {
