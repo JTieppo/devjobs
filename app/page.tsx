@@ -8,7 +8,6 @@ import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
 import Filtro from "./ui/filtro";
 import { url } from "inspector";
-import NotFound from "./ui/notFound";
 import Link from "next/link";
 
 
