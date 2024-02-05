@@ -1,8 +1,11 @@
 "use client"
 import { useState, useEffect } from "react";
 
+interface FiltroProps {
+    viFiltro: string;
+}
 
-export default function Filtro(content) {
+export default function Filtro({viFiltro}: FiltroProps) {
     
     return (
         <div>
