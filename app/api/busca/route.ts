@@ -1,15 +1,61 @@
-import { NextResponse, NextRequest } from 'next/server';
-import { data } from '../../data';
+import { NextResponse } from "next/server";
+import Fuse from "fuse.js";
+import { data } from "@/app/data";
 
+export const POST = async (req: Request) => {
+    const searchPattern = await req.json();
 
-export const POST = async (req: NextRequest) => {
-    var ids = [];
-    const dados = await req.json();
-    console.log(dados.buscaLocal);
-    if (dados.fullTime){
-        data.map(company => company.contract == 'Full Time' ? ids.push(company.id) : null);
+    if(searchPattern.fullTime){
+        console.log("chamando");
+        var jsonFile = data.filter(dados => dados.contract === "Full Time");
+        
+    } else {
+        var jsonFile = data.map(dados => dados)
     }
-    return NextResponse.json({
-        ids   
-    });
-};
+    const fuseOptions = {
+        keys: [
+            "location",
+            "company",
+            "position"
+        ]
+    };
+
+
+    if(searchPattern.buscaLocal == ''){
+        if(searchPattern.buscaTipo == ''){
+            var ids = jsonFile.map(item => item.id);
+        }else{
+            const fuse = new Fuse(jsonFile, fuseOptions);
+    
+            var buffer = fuse.search(searchPattern.buscaTipo);
+            var teste = buffer.map(item => item.item);
+
+            var ids = teste.map(item => item.id);
+        }
+    } else {
+        if(searchPattern.buscaTipo == ''){
+            const fuse = new Fuse(jsonFile, fuseOptions);
+    
+            var buffer = fuse.search(searchPattern.buscaLocal);
+            var teste = buffer.map(item => item.item);
+
+            var ids = teste.map(item => item.id);
+        
+        }else {
+            const fuse = new Fuse(jsonFile, fuseOptions);
+    
+            var buffer = fuse.search(searchPattern.buscaLocal);
+            var teste = buffer.map(item => item.item);
+            
+            const fusedois = new Fuse(jsonFile, fuseOptions);
+
+            var bufferdois = fusedois.search(searchPattern.buscaTipo)
+            var testedois = bufferdois.map(item => item.item)
+        
+            var ids = testedois.map(item => item.id);
+        }
+    }
+    
+    
+    return NextResponse.json({ids});
+}
