@@ -1,12 +1,16 @@
 import Link from "next/link";
 import { data } from "../data";
 
-export default function Card({ id }) {
+interface CardProps{
+    id: Number;
+}    
+
+export default function Card({ id }: CardProps) {
     var componentData = data.find(component => component.id == id);
     return (
         <Link href={`/${id}`} id="card-company" className="relative mt-20 rounded-lg p-8 mr-10 lg:mr-20">
             <div className="absolute flex w-12 h-12 rounded-2xl items-center" style={{ backgroundColor: componentData?.logoBackground, marginTop: "-55px" }}>
-                <img className="mx-auto" src={componentData.logo} alt="" />
+                <img className="mx-auto" src={componentData?.logo} alt="" />
             </div>
             <div>
                 <div className="flex flex-row items-baseline mt-4 text-sm" style={{ color: "#6E8098" }}>
