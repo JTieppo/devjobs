@@ -6,7 +6,6 @@ export const POST = async (req: Request) => {
     const searchPattern = await req.json();
 
     if(searchPattern.fullTime){
-        console.log("chamando");
         var jsonFile = data.filter(dados => dados.contract === "Full Time");
         
     } else {
