@@ -5,5 +5,5 @@
 - React
 - Typescript
 
-<img></img>
-<img></img>
+<img src="public/assets/photos/desktop.png"></img>
+<img src="public/assets/photos/mobile.png"></img>
