@@ -104,10 +104,10 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="md:hidden flex flex-row justify-between ml-10 mr-10 items-center" style={{ marginTop: "-32px" }}>
-                    <input id="input-text" className="p-4 rounded w-full pr-24" type="text" placeholder="Filter by title..." />
+                    <input id="input-text" className="p-4 rounded w-full pr-24" type="text" placeholder="Filter by title..." value={buscaTipo} onChange={(e) => setBuscaTipo(e.target.value)}/>
                     <div className="flex items-center ml-[-120%] mr-5">
                         <button onClick={clickIconFiltro} className="mr-2"><img src="assets/mobile/icon-filter.svg" alt="" /></button>
-                        <button className="rounded-md bg-[#5964E0] h-8 w-8"><MagnifyingGlassIcon className="mx-auto h-8 w-8 text-white"></MagnifyingGlassIcon></button>
+                        <button className="rounded-md bg-[#5964E0] h-8 w-8"><MagnifyingGlassIcon className="mx-auto h-8 w-8 text-white" onClick={buscar}></MagnifyingGlassIcon></button>
                     </div>
                 </div>
                 <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-8 md:ml-10 lg:ml-20 ${eventoPonteiro}`}>
@@ -119,8 +119,36 @@ export default function Home() {
             </main>
             <div className={viFiltro}>
                 <button className="m-10 fixed mx-auto w-full h-full top-0" onClick={clickIconFiltro}></button>
-                <Filtro viFiltro={viFiltro}></Filtro>
+                
+
+                
+                
+                <div>
+                    <div className="m-10 absolute mx-auto w-full top-56">
+                        <div className="flex flex-col mx-auto mr-10 ml-10">
+                            <div className="">
+                                <input className="rounded-none rounded-t w-full h-12 border-b pl-12" type="text" name="" id="input-text" value={buscaLocal} onChange={(e) => setBuscaLocal(e.target.value)}/>
+                                <img className="-mt-9 ml-6 mb-4" src="/assets/desktop/icon-location.svg" alt="" />
+                            </div>
+                            <div>
+                                <div id="input-text" className="flex flex-col justify-between p-6 rounded-b-lg">
+                                    <div className="flex flex-row">
+                                        <input type="checkbox" id="checkbox-mobile" className="flex my-auto mr-2" onClick={mostraCheck}/>
+                                        <label htmlFor="meuCheckbox" className="">Full</label>
+                                        <p className="ml-1">time</p>
+                                        <p className="ml-1">only</p>
+                                    </div>
+                                    <button className="mt-2 rounded bg-[#5964E0] h-10 w-full" onClick={buscar}>search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
+
             <div id="snackbar" className={showSnackbar}>
                 <p className="my-auto mx-auto text-2xl" style={{ color: "#5964E0" }}>Illustrative button</p>
             </div>
