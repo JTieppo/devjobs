@@ -99,7 +99,7 @@ export default function Home() {
                                 <p className="hidden lg:flex ml-1">only</p>
                                 <img src="/assets/desktop/icon-check.svg" className={`hidden ${checkVisual} relative md:ml-[-91px] lg:ml-[-127px] pointer-events-none`} alt="" />
                             </div>
-                            <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5" onClick={buscar}>search</button>
+                            <button className="rounded bg-[#5964E0] h-9 lg:h-10 w-20 lg:w-28 mr-5 text-white" onClick={buscar}>search</button>
                         </div>
                     </div>
                 </div>
